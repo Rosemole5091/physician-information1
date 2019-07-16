@@ -1,0 +1,142 @@
+<form>
+        <div style="color:orangered">
+    <p><b>PHYSICIAN INFORMATION</b></p><br><br></div>
+
+    <div class="form-group">
+        <label for="Firstname">FIRST NAME</label>&nbsp;
+         <input required 
+         [(ngModel)]="physObj.firstName"
+         name="firstname" 
+         type="text" 
+         placeholder="Enter First Name"
+         class="form-control">  
+         &nbsp;&nbsp;
+         <div style="color: red">
+                {{errorFname}}</div> <br>
+  
+        <label for="Lastname">LAST NAME</label>&nbsp;
+        <input required 
+        [(ngModel)]="physObj.lastName"
+        name="lastname"
+        type="text" 
+        placeholder="Enter Last Name" 
+        class="form-control">
+      
+        <div style="color: red">
+            {{errorLname}}</div>
+             </div><br>
+
+
+    <div class="form-group">
+        <label for="Speciality">SPECIALITY</label>&nbsp;
+        <input required 
+        [(ngModel)]="physObj.speciality" 
+        name="speciality"
+        type="text" 
+        placeholder="Enter speciality" 
+        class="form-control" >
+        <div style="color: red">
+            {{errorSpec}}</div>
+
+    </div><br>
+    <div class="form-group">
+        <label for="Clinic">CLINIC</label>&nbsp;
+        <input required 
+        [(ngModel)]="physObj.clinic" 
+        name="clinic"
+        type="text" 
+        placeholder="Enter clinic" 
+        class="form-control" >
+        <div style="color: red">
+            {{errorClinic}}</div>
+
+    </div><br>
+        
+    
+    <div class="form-group">
+        <label for="Phone">PHONE NUMBER</label>&nbsp;
+        <input required
+        [(ngModel)]="physObj.phone"
+        name="phone"  
+        maxlength="10" type="text" placeholder="Enter phone"
+        class="form-control" >
+        &nbsp;&nbsp;
+        <div style="color: red">
+            {{errorPhone}}{{errorPhone1}}</div><br>
+             
+        <label for="Email">EMAIL</label>&nbsp;
+        <input required 
+        [(ngModel)]="physObj.email"
+        name="email"
+        type="text" 
+        placeholder="Enter Email"
+        class="form-control" >
+        <div style="color: red">
+            {{errorEmail}}</div>
+         
+    </div><br><br>
+
+    <div>
+        <input type="button" (click)="addPhysician()" value="ADD">&nbsp;&nbsp;
+
+        <button class="clr-btn" onclick="this.form.reset();">CLEAR</button>&nbsp;&nbsp;
+
+        <input type="button" (click)="listPhysician()" value="LIST">&nbsp;&nbsp;
+
+        <table>
+            <thead>
+            <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+            <th>SPECIALITY</th>
+            <th>CLINIC</th>
+            <th>PHONE NUMBER</th>
+            <th>EMAIL</th>
+            </thead>
+    
+            <tbody>
+            <tr *ngFor="let physicians of physicianList">
+            <td>{{physicians.firstName}}</td>
+            <td>{{physicians.lastName}}</td>
+            <td>{{physicians.speciality}}</td>
+            <td>{{physicians.clinic}}</td>
+            <td>{{physicians.phone}}</td>
+            <td>{{physicians.email}}</td>
+            </tr>
+            </tbody>
+    
+        </table><br><br>
+     
+    </div><br><br>
+
+    <div style="color:orangered">
+            <b><label>Search: </label></b>
+           
+            <input type="text"  placeholder="Search" ngModel="searchText">
+    </div> 
+          
+            <table id="searchTextResults">
+                   <thead>
+                   <th>FIRST NAME</th>
+                   <th>LAST NAME</th>
+                   <th>SPECIALITY</th>
+                   <th>CLINIC</th>
+                   <th>PHONE NUMBER</th>
+                   <th>EMAIL</th>
+                   </thead>
+           
+                   <tbody>
+                   <tr ng-repeat="physician in physicianList | filter:searchText">
+                   <td>{{physician.firstName}}</td>
+                   <td>{{physician.lastName}}</td>
+                   <td>{{physician.speciality}}</td>
+                   <td>{{physician.clinic}}</td>
+                   <td>{{physician.phone}}</td>
+                   <td>{{physician.email}}</td>
+                   </tr>
+                   </tbody>
+           
+            </table>
+       
+   
+</form>
+
