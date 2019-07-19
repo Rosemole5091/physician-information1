@@ -6,7 +6,6 @@ export class Physicians {
     clinic:String;
     phone:String;
     email:String;
-
     
   constructor() {
     this.firstName="";

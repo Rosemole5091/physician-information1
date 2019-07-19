@@ -30,7 +30,7 @@ export class LoginformComponent implements OnInit {
     this.physicianList = this.loginformService.listPhysician();
 
   }
-  
+
   addPhysician() {
     try {
       if (this.physObj.firstName == "") { this.errormsgForFirstname = "First name required"; }
