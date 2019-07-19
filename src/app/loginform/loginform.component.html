@@ -1,29 +1,29 @@
 <form>
         <div style="color:orangered">
-    <p><b>PHYSICIAN INFORMATION</b></p><br><br></div>
+    <p><b>PHYSICIAN INFORMATION</b></p><br></div>
 
     <div class="form-group">
         <label for="Firstname">FIRST NAME</label>&nbsp;
          <input required 
          [(ngModel)]="physObj.firstName"
-         name="firstname" 
+         name="firstName" 
          type="text" 
          placeholder="Enter First Name"
          class="form-control">  
          &nbsp;&nbsp;
          <div style="color: red">
-                {{errorFname}}</div> <br>
+                {{errormsgForFirstname}}</div> <br>
   
         <label for="Lastname">LAST NAME</label>&nbsp;
         <input required 
         [(ngModel)]="physObj.lastName"
-        name="lastname"
+        name="lastName"
         type="text" 
         placeholder="Enter Last Name" 
         class="form-control">
       
         <div style="color: red">
-            {{errorLname}}</div>
+            {{errormsgForLastname}}</div>
              </div><br>
 
 
@@ -36,7 +36,7 @@
         placeholder="Enter speciality" 
         class="form-control" >
         <div style="color: red">
-            {{errorSpec}}</div>
+            {{errormsgForSpeciality}}</div>
 
     </div><br>
     <div class="form-group">
@@ -48,7 +48,7 @@
         placeholder="Enter clinic" 
         class="form-control" >
         <div style="color: red">
-            {{errorClinic}}</div>
+            {{errormsgForClinic}}</div>
 
     </div><br>
         
@@ -62,7 +62,7 @@
         class="form-control" >
         &nbsp;&nbsp;
         <div style="color: red">
-            {{errorPhone}}{{errorPhone1}}</div><br>
+            {{errormsgForPhone}}{{errormsgForPhone1}}</div><br>
              
         <label for="Email">EMAIL</label>&nbsp;
         <input required 
@@ -72,16 +72,16 @@
         placeholder="Enter Email"
         class="form-control" >
         <div style="color: red">
-            {{errorEmail}}</div>
+            {{errormsgForEmail}}</div>
          
-    </div><br><br>
+    </div><br>
 
     <div>
         <input type="button" (click)="addPhysician()" value="ADD">&nbsp;&nbsp;
 
         <button class="clr-btn" onclick="this.form.reset();">CLEAR</button>&nbsp;&nbsp;
 
-        <input type="button" (click)="listPhysician()" value="LIST">&nbsp;&nbsp;
+        </div><br><br><br>
 
         <table>
             <thead>
@@ -106,37 +106,8 @@
     
         </table><br><br>
      
-    </div><br><br>
+    
+</form>    
 
-    <div style="color:orangered">
-            <b><label>Search: </label></b>
-           
-            <input type="text"  placeholder="Search" ngModel="searchText">
-    </div> 
-          
-            <table id="searchTextResults">
-                   <thead>
-                   <th>FIRST NAME</th>
-                   <th>LAST NAME</th>
-                   <th>SPECIALITY</th>
-                   <th>CLINIC</th>
-                   <th>PHONE NUMBER</th>
-                   <th>EMAIL</th>
-                   </thead>
-           
-                   <tbody>
-                   <tr ng-repeat="physician in physicianList | filter:searchText">
-                   <td>{{physician.firstName}}</td>
-                   <td>{{physician.lastName}}</td>
-                   <td>{{physician.speciality}}</td>
-                   <td>{{physician.clinic}}</td>
-                   <td>{{physician.phone}}</td>
-                   <td>{{physician.email}}</td>
-                   </tr>
-                   </tbody>
-           
-            </table>
-       
-   
-</form>
+
 

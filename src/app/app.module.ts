@@ -4,6 +4,7 @@ import { FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginformComponent } from './loginform/loginform.component';
+import { LoginformService } from './loginform.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { LoginformComponent } from './loginform/loginform.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [LoginformService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
